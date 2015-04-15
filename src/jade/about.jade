@@ -1,0 +1,17 @@
+extends includes/layout
+
+block content
+
+	#about
+
+		h1 About
+
+	script.
+
+		env.BODY_CLASSES = ['about'];
+
+		$(function(){
+			$(window).one('after:render', function(){
+				var page = new app.views.About();
+			});
+		});

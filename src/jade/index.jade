@@ -1,0 +1,17 @@
+extends includes/layout
+
+block content
+
+	#home
+
+		h1 Home
+
+	script.
+
+		env.BODY_CLASSES = ['home'];
+
+		$(function(){
+			$(window).one('after:render', function(){
+				var page = new app.views.Home();
+			});
+		});
