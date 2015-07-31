@@ -3,7 +3,6 @@ clean:
 
 setup:
 	make clean
-	git config core.fileMode false
 	npm install
 
 dev:
