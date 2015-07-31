@@ -16,7 +16,7 @@ A very simple barebones angular application for getting shit done, faster.
 
 ```
 git clone git@github.com:hi-res/webapp.git
-make setup
+cd webapp && make setup
 ```
 
 ## Developing
