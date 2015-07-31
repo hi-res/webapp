@@ -4,6 +4,8 @@ clean:
 setup:
 	make clean
 	npm install
+	bower install
+	make dev
 
 dev:
 	NODE_ENV=development gulp
