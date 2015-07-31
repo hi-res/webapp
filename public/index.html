@@ -2,49 +2,45 @@
 <html class="webapp">
   <head>
     <title>webapp</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="">
+    <meta name="keywords" lang="en" content="">
+    <base href="/">
+    <link rel="canonical" href="">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/sprite.css">
     <script src="/js/vendor.js"></script>
     <script>
       var env = {
       	DEBUG: true,
-      	BASE_PATH: '',
       };
       
     </script>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-    </nav>
-    <main id="main">
-      <div id="home">
-        <h1>Home</h1>
-      </div>
-      <script>
-        env.BODY_CLASSES = ['home'];
-        
-        $(function(){
-        	$(window).one('after:render', function(){
-        		var page = new app.views.Home();
-        	});
-        });
-      </script>
+    <main id="main" class="container">
+      <nav>
+        <ul>
+          <li><a href="/">view1</a></li>
+          <li><a href="/view2">view2</a></li>
+        </ul>
+      </nav>
+      <section ng-view class="page {{pageClass}}"></section>
     </main>
+    <footer id="footer"></footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', '', 'auto');
+      ga('send', 'pageview');
+      
+    </script>
+    <script src="/js/app.js"></script>
   </body>
-  <footer id="footer"></footer>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    
-    ga('create', '', 'auto');
-    ga('send', 'pageview');
-    
-  </script>
-  <script src="/js/app.js"></script>
 </html>

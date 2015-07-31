@@ -18,7 +18,7 @@ module.exports =
 			controllers : __dirname + '/src/coffee/controllers'
 			views 		: __dirname + '/src/coffee/views'
 			lib 		: __dirname + '/src/coffee/lib'
-			templates   : __dirname + '/src/jade'
+			templates   : __dirname + '/src/jade/templates'
 
 	node:
 		fs: "empty"

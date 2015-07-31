@@ -1,0 +1,32 @@
+.page{
+	position: absolute;
+	transition: 0.5s linear all;
+}
+
+.page.ng-enter { 
+	z-index: 8888; 
+}
+.page.ng-leave {
+	z-index: 9999;
+}
+
+.page.ng-enter{
+	opacity: 0;
+}
+
+.page.ng-enter.ng-enter-active {
+	opacity: 1;
+	transition-delay: 0.5s;
+}
+
+.page.ng-leave{
+	opacity: 1;
+}
+
+.page.ng-leave.ng-leave-active{
+	opacity: 0;
+}
+
+body{
+	color: red;
+}

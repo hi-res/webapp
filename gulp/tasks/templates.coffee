@@ -6,13 +6,13 @@ gulp 		= require 'gulp'
 livereload  = require 'gulp-livereload'
 jade        = require 'gulp-jade'
 gulpif      = require 'gulp-if'
-handleError = require '../util/handle_error'
+handleError = require '../util/handleError'
 
 development = process.env.NODE_ENV is 'development'
 production  = process.env.NODE_ENV is 'production'
 
 exports.paths =
-	source: './src/jade/*.jade'
+	source: './src/jade/**/*.jade'
 	watch: './src/jade/**/*.jade'
 	destination: './public/'
 

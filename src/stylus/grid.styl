@@ -1,0 +1,20 @@
+.container
+	margin: 0 auto
+	center()
+		
+	+above(rupture.tablet-cutoff)
+		max-width: rupture.hd-cutoff
+		
+	+tablet()
+		max-width: rupture.desktop-cutoff
+
+	+mobile()
+		max-width: rupture.mobile-cutoff
+
+nav
+	column(3/3, gutter: .5)
+
+section.page
+	column(2/3, gutter: .5)
+	
+// edit()

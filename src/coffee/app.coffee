@@ -1,25 +1,16 @@
-class App
+class App extends App
 
 	constructor: ->
 
-		window.c = require 'lib/log'
-		c.enable = env.DEBUG
+		angular.element( document ).ready () => @start()
 
-		window.app = @
+		return [
+			'ngAria'
+			'ngRoute'
+			'ngLodash'
+			'ngAnimate'
+		]
+	
+	start: ->
 
-
-		###
-		Expose view classes
-		###
-		@views =
-			'Home'  : require 'views/home'
-			'About' : require 'views/about'
-
-		###
-		Start
-		###
-		nav = require 'controllers/navigation'
-
-		do nav.start
-
-module.exports = $ -> new App
+		angular.bootstrap document, ['app']
