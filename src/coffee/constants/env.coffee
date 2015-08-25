@@ -3,7 +3,7 @@ class ENV extends Constant
 	constructor: ->
 
 		return {
-			'DEBUG' : true
+			'DEBUG' : env.DEBUG
 			'GUI'   : true
 		}
 

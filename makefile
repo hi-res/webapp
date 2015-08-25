@@ -10,11 +10,11 @@ setup:
 watch:
 	NODE_ENV=development gulp
 
+preview:
+	NODE_ENV=production gulp
+
 release:
 	NODE_ENV=production gulp build
 
 spritesheet:
 	cd gulp/svg && NODE_ENV=production gulp
-
-preview:
-	NODE_ENV=production gulp
