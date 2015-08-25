@@ -3,7 +3,6 @@ require('dotenv').config(path: '.env.'+ process.env.NODE_ENV)
 config 		= require '../../package.json'
 path 		= require 'path'
 gulp 		= require 'gulp'
-livereload  = require 'gulp-livereload'
 jade        = require 'gulp-jade'
 gulpif      = require 'gulp-if'
 handleError = require '../util/handleError'
@@ -31,5 +30,4 @@ gulp.task 'templates', ->
 				production: production
 		))
 		.pipe gulp.dest exports.paths.destination
-		.pipe gulpif development, livereload()
 		.on 'error', handleError

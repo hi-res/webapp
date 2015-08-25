@@ -1,0 +1,38 @@
+.dg{
+	text-transform: uppercase;
+}
+
+.dg.ac{
+	z-index : 1 !important;
+
+	.dg li:not(.folder){
+		background : rgba(0, 0, 0, 0.85) !important;
+	}
+
+	.dg .c .slider-fg,
+	.dg .c .slider:hover .slider-fg{
+		background : white !important;
+	}
+
+	.c .slider{
+		background : rgba(255, 255, 255, 0.2) !important;
+	}
+
+	.dg .c input[type=text]{
+		background-color : #464542;
+	}
+
+	.hue-field{
+		width : 14px !important;
+	}
+
+	li.string input[type=text]{
+		background: black !important;
+		color: white !important;
+	}
+
+	.cr.string{
+		border-left-color: white !important;
+	}
+}
+	

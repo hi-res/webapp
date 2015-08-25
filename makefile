@@ -7,11 +7,11 @@ setup:
 	bower install
 	make dev
 
-dev:
+watch:
 	NODE_ENV=development gulp
 
 release:
-	NODE_ENV=development gulp build
+	NODE_ENV=production gulp build
 
 spritesheet:
 	cd gulp/svg && NODE_ENV=production gulp

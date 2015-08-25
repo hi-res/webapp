@@ -1,41 +1,39 @@
-config 		= require '../../package.json'
+config      = require '../../package.json'
 gulp 	    = require 'gulp'
-nib 	    = require 'nib'
+gulpif 	    = require 'gulp-if'
 CSSmin      = require 'gulp-minify-css'
-prefix      = require 'gulp-autoprefixer'
-rename      = require "gulp-rename"
-stylus 		= require 'gulp-stylus'
-nib 	    = require 'nib'
-jeet 	    = require 'jeet'
-rupture 	= require 'rupture'
-typographic = require 'typographic'
-axis 		= require 'axis'
 browserSync = require 'browser-sync'
-handleError = require '../util/handleError'
+sourcemaps  = require 'gulp-sourcemaps'
+sass  		= require 'gulp-sass'
+rename      = require 'gulp-rename'
 
-production = process.env.NODE_ENV is 'production'
+development = process.env.NODE_ENV is 'development'
+production  = process.env.NODE_ENV is 'production'
 
 exports.paths =
-	source 		: './src/stylus/app.styl'
-	watch 		: './src/stylus/**/*.styl'
-	destination : './public/css/'
-	release 	: "site.min.#{config.version}.css"
+	source: './src/sass/app.scss'
+	watch: './src/sass/*.scss'
+	destination: './public/css'
+	filename: 'app.css'
+	release: "app.min.#{config.version}.css"
 
 gulp.task 'styles', ->
-	 
-	 gulp
-		.src exports.paths.source
-		.pipe(stylus({
-			set: ['include css'],
-			use: [nib(), jeet(), typographic(), rupture(), axis()]
-		}))
-		.on 'error', handleError
-		.pipe prefix 'last 2 versions', 'Chrome 34', 'Firefox 28', 'iOS 7'
-		.pipe gulp.dest exports.paths.destination
-		.pipe browserSync.reload(stream:true)
 
 	if production
-		gulp.src(exports.paths.destination + 'app.css')
-			.pipe CSSmin()
-			.pipe(rename(exports.paths.release))
-			.pipe(gulp.dest(exports.paths.destination))
+		filename = exports.paths.release
+	else
+		filename = exports.paths.filename
+
+	outputStyle = if production then 'compressed' else 'expanded'
+	
+	gulp
+		.src exports.paths.source
+		.pipe gulpif development, sourcemaps.init()
+		.pipe(sass({
+			outputStyle: outputStyle
+		}).on('error', sass.logError))
+		.pipe gulpif development, sourcemaps.write()
+		.pipe gulpif production, CSSmin()
+		.pipe rename filename
+		.pipe gulp.dest exports.paths.destination
+		.pipe gulpif development, browserSync.stream()

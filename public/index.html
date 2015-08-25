@@ -10,19 +10,19 @@
     <meta name="keywords" lang="en" content="">
     <base href="/">
     <link rel="canonical" href="">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/sprite.css">
-    <script src="/js/vendor.js"></script>
+    <link rel="stylesheet" href="/css/app.min.0.0.0.css">
+    <link rel="stylesheet" href="/css/sprite.min.0.0.0.css">
+    <script src="/js/vendor.min.0.0.0.js"></script>
     <script>
       var env = {
-      	DEBUG: true,
+      	DEBUG: false,
       };
       
     </script>
   </head>
   <body>
     <header><span class="icon logo"></span></header>
-    <main id="main" class="container">
+    <main id="main" ng-controller="mainController" class="container">
       <nav>
         <ul>
           <li><a href="/">view1</a></li>
@@ -42,6 +42,6 @@
       ga('send', 'pageview');
       
     </script>
-    <script src="/js/app.js"></script>
+    <script src="/js/app.min.0.0.0.js"></script>
   </body>
 </html>

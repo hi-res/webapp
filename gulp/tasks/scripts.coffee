@@ -2,11 +2,11 @@ config      = require '../../package.json'
 gulp 		= require 'gulp'
 uglify      = require 'gulp-uglify'
 gulpif      = require 'gulp-if'
-classify    = require 'gulp-ng-classify'
 coffee 		= require 'gulp-coffee'
+classify    = require 'gulp-ng-classify'
 concat 		= require 'gulp-concat'
-rename      = require "gulp-rename"
 handleError = require '../util/handleError'
+rename      = require 'gulp-rename'
 
 development = process.env.NODE_ENV is 'development'
 production  = process.env.NODE_ENV is 'production'
@@ -30,6 +30,7 @@ gulp.task 'scripts', ->
 		.pipe classify()
 		.pipe coffee bare: false
 		.pipe concat exports.paths.filename
+
 		.pipe gulpif production, uglify()
 		.pipe rename filename
 		.pipe gulp.dest exports.paths.destination
